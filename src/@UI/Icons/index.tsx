@@ -11,6 +11,7 @@ import Flask from "../../../public/static/svgs/light/flask.svg";
 import HeartPulse from "../../../public/static/svgs/light/heart-pulse.svg";
 import Doctor from "../../../public/static/svgs/light/user-doctor.svg";
 import Bars from "../../../public/static/svgs/light/bars.svg";
+import Logout from "../../../public/static/svgs/light/arrow-right-from-bracket.svg";
 
 const SpanStyled = styled("span")<{ size: number }>(({ size }) => ({
   svg: {
@@ -42,6 +43,7 @@ const iconTypes: IconTypes = {
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   bars: Bars,
+  logout: Logout,
 };
 
 const Icons = ({

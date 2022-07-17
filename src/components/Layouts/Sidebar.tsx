@@ -1,15 +1,18 @@
+import { Icon } from "@UI";
 import ClientOnlyPortal from "@UI/ClientPortal";
 import { useMediaQuery, useToggleDrawer } from "hooks";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import Menu from "./Menu";
 
 const Layouts: React.FC = (): React.ReactElement => {
+  const { t } = useTranslation();
   const matches = useMediaQuery("(min-width:600px)");
   const { state, toggleDrawer } = useToggleDrawer();
 
   const sidebar = (
     <aside
-      className={`sidebar md:shadow transform translate-x-full md:translate-x-0  transition-transform duration-150 ease-in bg-indigo-500 bg-tahiti fixed top-0 bottom-0 start-0 w-72 ${
+      className={`sidebar md:shadow flex flex-col transform translate-x-full md:translate-x-0  transition-transform duration-150 ease-in bg-tahiti fixed top-0 bottom-0 start-0 w-72 ${
         state["left"] ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -22,8 +25,14 @@ const Layouts: React.FC = (): React.ReactElement => {
           </a>
         </Link>
       </div>
-      <div className="sidebar-content scrollbar p-4 h-full">
+      <div className="flex-auto scrollbar p-4 h-full">
         <Menu />
+      </div>
+      <div className="m-3">
+        <button className="p-3 w-full rounded-lg hover:bg-tahiti-dark">
+          <Icon name="logout" className="align-middle me-2" />
+          <span>{t("logout")}</span>
+        </button>
       </div>
     </aside>
   );
